@@ -13,7 +13,6 @@ class NextTrainPage extends StatefulWidget {
 }
 
 class _NextTrainPageState extends State<NextTrainPage> with SingleTickerProviderStateMixin {
-  int _currentIndex = 0;
   late DataService _dataService;
   late TabController _tabController;
   
@@ -28,10 +27,6 @@ class _NextTrainPageState extends State<NextTrainPage> with SingleTickerProvider
   void dispose() {
     _tabController.dispose();
     super.dispose();
-  }
-
-  void _incrementCounter() {
-    _dataService.fetchData();
   }
 
   @override
@@ -104,7 +99,7 @@ class _NextTrainPageState extends State<NextTrainPage> with SingleTickerProvider
             trips.length,
                 (int index) => DataRow(
               cells: <DataCell>[
-                DataCell(Text(trips[index].line, style: Theme.of(context).textTheme.bodyLarge)),
+                DataCell(Text('    ${trips[index].line}    ', style: Theme.of(context).textTheme.bodyLarge)),
                 DataCell(Text(trips[index].status, textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyLarge)),
                 DataCell(Text(trips[index].time, textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyLarge)),
                 DataCell(
