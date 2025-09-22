@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sncf_next_trains/models/station.dart';
 import 'package:sncf_next_trains/pages/next_train_pages.dart';
 
 final mainTheme = ThemeData(
@@ -189,7 +190,7 @@ final mainTheme = ThemeData(
     ),
 
     // The color of the heading's sorting icon.
-    headingRowColor: MaterialStateProperty.all(Colors.transparent),
+    headingRowColor: WidgetStateProperty.all(Colors.transparent),
 
     // The color of the horizontal dividers.
     dividerThickness: 1.0,
@@ -212,7 +213,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: mainTheme,
-      home: const NextTrainPage(title: 'Prochains trains en gare'),
+      home: NextTrainPage(stations: [
+        Station('Maurecourt', 'maurecourt'),
+        Station("Conflans Fin D'Oise", 'conflans-fin-oise')
+      ],),
     );
   }
 }
